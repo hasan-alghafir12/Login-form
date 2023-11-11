@@ -1,0 +1,392 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-color: #00b7d4;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.login-form {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.login-form .container {
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/wp10620539-winter-night-mountains-hd-wallpapers.jpg");
+    background-size:cover;
+    position: relative;
+    
+}
+
+.blur {
+    filter: blur(2px);
+}
+
+.login-form .container .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.login-form .container .header .main {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+@media (min-width: 992px) {
+    .login-form .container .header .main {
+        display: none;
+    }
+}
+.login-form .container .header .main span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 3px;
+}
+.login-form .container .header .logo {
+    width: 160px;
+    height: 70%;
+    mix-blend-mode: screen;
+}
+
+.login-form .container .header .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.login-form .container .header .nav {
+    flex: 1;
+}
+
+.login-form .container .header .nav i {
+    display: none;
+}
+.login-form .container .header ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.login-form .container .header ul li a {
+    text-decoration: none;
+    display: block;
+    height: 70px;
+    padding: 0 20px;
+    line-height: 70px;
+    color: white;
+    transition: all 0.3s;
+}
+
+.login-form .container .header ul li a:hover {
+    color: var(--main-color);
+}
+
+@media (max-width: 991px) {
+    .login-form .container .header .nav {
+        position: fixed;
+        left: -300px;
+        top: 0;
+        background-color: white;
+        height: 100vh;
+        width: 300px;
+        transition: all 0.3s;
+        z-index: 100;
+    }
+
+    .login-form .container .header .nav.showing {
+        left: 0;
+    }
+
+    .login-form .container .header .nav i {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        cursor: pointer;
+    }
+
+    .login-form .container .header ul {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 75px;
+    }
+
+    .login-form .container .header ul li {
+        display: block;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+    }
+    .login-form .container .header ul li a {
+        color: black;
+        font-weight: 700;
+    }
+}
+
+.login-form .container .header .login  button {
+    border: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.form {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 400px;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+@media (max-width: 850px) {
+    .form {
+        width: 95%;
+    }
+}
+
+.show-form {
+    opacity: 1;
+    top: 50%;
+}
+
+.form .face {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 2px;
+}
+
+.hidden {
+    opacity: 0;
+    z-index: -100;
+}
+
+.show {
+    opacity: 1;
+}
+
+.form .info {
+    flex: 45%;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 850px) {
+    .form .info {
+        display: none;
+    }
+}
+
+.form .info .photo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.form .info .photo img,
+.form .info .photo .text {
+    position: absolute;
+}
+
+.form .info .photo img {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.form .info .photo .text {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.form .info .photo .text h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form .info .photo .text p {
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.form .input {
+    flex: 55%;
+    height: 100%;
+}
+
+.form .input .icon {
+    height: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+}
+.form .input .icon i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    
+}
+
+.form .input form {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+.form .input form h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form .input form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.form .input form input:focus {
+    outline: none;
+}
+
+.form .input form input::placeholder {
+    transition: all 0.3s;
+    color: black;
+}
+.form .input form input:focus::placeholder {
+    font-size: 10px;
+    position: relative;
+    color: var(--main-color);
+    top: -7px;
+}
+
+.form .input form .term {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form .input form .paragh,
+.form .input form .term p {
+    font-size: 14px;
+}
+.form .input form .term span,
+.form .input form .paragh span {
+    font-size: 14px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+
+.form .input form .term span:hover,
+.form .input form .paragh span:hover {
+    text-decoration: underline;
+}
+.form .input form .term .correct {
+    width: 13px;
+    height: 13px;
+    position: relative;
+    border: 1px solid #333;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.background {
+    background-color: #2196F3;
+    border: 1px solid transparent;
+}
+
+.form .input form .term .correct i {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: white;
+    display: block;
+    font-size: 13px;
+}
+
+.form .input form .term .correct i.show {
+    display: block;
+}
+
+
+.form .input form .term  i.show {
+    display: block;
+}
+
+.form .input form input[type="submit"] {
+    background-color: var(--main-color);
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: all 0.3s;
+}
+
+.form .input form input[type="submit"]:hover {
+    background-color: #0099d4;
+}
+
+
+.form .input form .paragh {
+    text-align: center;
+}
+
